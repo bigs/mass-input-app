@@ -17,13 +17,15 @@ massCommentForm :: Html -> MForm Handler (FormResult [Comment], Widget)
 massCommentForm = renderTable $ inputList "Comments" massTable individualCommentForm Nothing
 
 getHomeR :: Handler Html
-getHomeR = defaultLayout $ do
+getHomeR = do
   ((_, formWidget), formEnctype) <- runFormPost massCommentForm
 
-  $(widgetFile "home")
+  defaultLayout $ do
+    $(widgetFile "home")
 
 postHomeR :: Handler Html
-postHomeR = defaultLayout $ do
+postHomeR = do
   ((_, formWidget), formEnctype) <- runFormPost massCommentForm
 
-  $(widgetFile "home")
+  defaultLayout $ do
+    $(widgetFile "home")
