@@ -2,3 +2,5 @@
   <div .col-md-12>
     <form action=@{HomeR} method=post enctype=#{formEnctype}>
       ^{formWidget}
+
+      <input type=submit>
